@@ -1,2 +1,3 @@
-# GschnellSimon
-Personalized react web app 
+# project
+
+## readme todo
