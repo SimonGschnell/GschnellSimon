@@ -1,22 +1,35 @@
 
 import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
+const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
 
 
 let Navigation = ()=>
 
-
-<Nav  style={{width: "max-content"}} variant="pills" defaultActiveKey="/home"  className="rounded flex-column border">
-  <Nav.Item>
-    <Nav.Link className="rounded-0" href="/home">Active</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link className="rounded-0" eventKey="link-1">Option 2</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link className="rounded-0" eventKey="disabled" disabled>
-      Disabled
-    </Nav.Link>
-  </Nav.Item>
-</Nav>
+<Nav variant="pills" activeKey="1" className="p-3" onSelect={handleSelect}>
+      <Nav.Item>
+        <Nav.Link eventKey="1" href="#/home">
+          NavLink 1 content
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="2" title="Item">
+          NavLink 2 content
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="3" disabled>
+          NavLink 3 content
+        </Nav.Link>
+      </Nav.Item>
+      <NavDropdown title="Dropdown" id="nav-dropdown">
+        <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
+        <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
+        <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
+      </NavDropdown>
+    </Nav>
 
 export default Navigation;
