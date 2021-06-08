@@ -2,6 +2,7 @@ import Home from './Home'
 import About from './About'
 import Projects from './Projects'
 import Project from './Project'
+import APIS from './APIS'
 import { useLocation } from 'react-router-dom'
 
 
@@ -40,6 +41,15 @@ let routes = [
         options: 
             {
                 
+            }
+    },
+    {
+        route: "/api",
+        Component:  APIS,
+        options: 
+            {
+                exact:true,
+                strict:true  
             }
     },
     {

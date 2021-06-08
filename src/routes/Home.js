@@ -1,11 +1,12 @@
-import {useRouteMatch} from 'react-router-dom'
+
 import Heading from "../components/landing/Jumbo"
+import backgroundImg from '../images/back.jpg'
 
 let Home = () =>{
     
     return (
 
-        <Heading/>
+        <Heading className="page" background={backgroundImg}/>
     );
 }
 
