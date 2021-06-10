@@ -1,13 +1,13 @@
+import Heading from "../components/landing/Jumbo";
 
-import Heading from "../components/landing/Jumbo"
-import backgroundImg from '../images/back.jpg'
+import backgroundImg from "../images/back.jpg";
 
-let Home = () =>{
-    
-    return (
-
-        <Heading className="page" background={backgroundImg}/>
-    );
-}
+let Home = () => {
+  return (
+    <>
+      <Heading className='page' background={backgroundImg} />
+    </>
+  );
+};
 
 export default Home;

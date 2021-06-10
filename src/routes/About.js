@@ -1,11 +1,12 @@
-
+import CvTable from "../components/cvTable/cvTable";
+import cv from "../cv.json";
 
 let About = () => {
-    
-    
-
-    return (<h1>About me lol</h1>);
-
-}
+  return (
+    <>
+      <CvTable data={cv}></CvTable>
+    </>
+  );
+};
 
 export default About;

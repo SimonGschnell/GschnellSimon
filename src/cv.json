@@ -1,0 +1,40 @@
+[
+    {
+        "direction":"flex-row-reverse",
+        "category":"job",
+        "headers":["Company","Occupation","Skills","Time"],
+        "data":[
+            {
+                "comp":"yannovis GMBH",
+                "title" : "Junior Frontend Developer",
+                "name" : "React, Vue, JS",
+                "time" : "1 year"
+            }
+        ]
+    },
+    {
+        "category":"job",
+        "headers":["Company","Occupation","Skills","Time"],
+        "data":[
+            {
+                "comp":"yannovis GMBH",
+                "title" : "Junior Frontend Developer",
+                "name" : "React, Vue, JS",
+                "time" : "1 year"
+            }
+        ]
+    },
+    {
+        "direction":"flex-row-reverse",
+        "category":"job",
+        "headers":["Company","Occupation","Skills","Time"],
+        "data":[
+            {
+                "comp":"yannovis GMBH",
+                "title" : "Junior Frontend Developer",
+                "name" : "React, Vue, JS",
+                "time" : "1 year"
+            }
+        ]
+    }
+]

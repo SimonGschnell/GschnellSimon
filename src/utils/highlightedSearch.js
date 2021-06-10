@@ -1,26 +1,35 @@
+let highlightedSearch = (name, search, color) => {
+  let searchCheck = search.toLocaleLowerCase();
 
+  function highlightCheck(s, i, name) {
+    s = s.toLocaleLowerCase();
 
-let highlightedSearch = (name,search) => {
-
-    let searchCheck = search.toLocaleLowerCase();
-
-    function highlightCheck(s,i,name){
-        s = s.toLocaleLowerCase()
-        if(searchCheck.length > 1 && searchCheck.length >i+1 && searchCheck.charAt(1) !== name.charAt(i+1) ){
-        return false
+    if (searchCheck.length > 1) {
+      for (let x = 0; x < searchCheck.length; x++) {
+        if (
+          searchCheck.charAt(x).toLowerCase() !==
+          name.charAt(i + x).toLocaleLowerCase()
+        ) {
+          return false;
         }
-        if(searchCheck.charAt(0) === s){
-            searchCheck = searchCheck.replace(s,'');
-            return true;
-        }
-        return false;
+      }
     }
 
-    return [...name].map((s,i)=>
-    <span key={i} style={highlightCheck(s,i,name)?{background:"yellow"}:{}}>
-        {s}
-    </span>
-    )
-} 
+    if (searchCheck.charAt(0) === s) {
+      searchCheck = searchCheck.replace(s, "");
+      return true;
+    }
+    return false;
+  }
 
-export default highlightedSearch
+  return [...name].map((s, i) => (
+    <span
+      key={i}
+      style={highlightCheck(s, i, name) ? { background: color } : {}}
+    >
+      {s}
+    </span>
+  ));
+};
+
+export default highlightedSearch;
