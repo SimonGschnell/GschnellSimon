@@ -3,21 +3,17 @@ import Footer from "./components/footer/footer";
 import routes from "./routes/routes";
 import Container from "react-bootstrap/Container";
 import "./style/App.css";
-import { useState, useEffect, Suspense } from "react";
+import { useState, useLayoutEffect, Suspense, useRef } from "react";
 import { Switch, Route } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 function App() {
+  let currHeight = useRef();
   let [pageHeight, setPageHeight] = useState(0);
 
-  let adaptViewHeight = () => {
-    const height = document.getElementById("page").clientHeight;
-    setPageHeight(height);
-  };
-
-  useEffect(() => {
-    adaptViewHeight();
-  }, []);
+  useLayoutEffect(() => {
+    setPageHeight(currHeight.current.getBoundingClientRect().height);
+  });
 
   return (
     <>
@@ -43,7 +39,11 @@ function App() {
                               {...options}
                               component={({ history }) => {
                                 return (
-                                  <div id='page' className='page '>
+                                  <div
+                                    ref={currHeight}
+                                    id='page'
+                                    className='page '
+                                  >
                                     <Component history={history} />
                                   </div>
                                 );

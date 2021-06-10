@@ -1,6 +1,6 @@
 import { lazy } from "react";
 import { useLocation } from "react-router-dom";
-const Home = lazy(() => import("./Home"));
+import Home from "./Home";
 const About = lazy(() => import("./About"));
 const Projects = lazy(() => import("./Projects"));
 const Project = lazy(() => import("./Project"));
