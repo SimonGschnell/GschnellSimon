@@ -52,7 +52,7 @@ let cvTable = (props) => {
           <Row key={i} className={data.direction ?? null}>
             <Col xs={12} sm={12} md={10} lg={8} xl={8}>
               <h2
-                className='my-3'
+                className='my-3 text-warning'
                 style={{ textAlign: data.direction ? "end" : "" }}
               >
                 {data.direction ? "" : rightCevro}
@@ -61,6 +61,7 @@ let cvTable = (props) => {
               </h2>
 
               <Table
+                hover
                 borderless
                 style={{ background: "rgb(74,80,86)" }}
                 variant='dark'

@@ -12,7 +12,11 @@ function App() {
   let [pageHeight, setPageHeight] = useState(0);
 
   useLayoutEffect(() => {
-    setPageHeight(currHeight.current.getBoundingClientRect().height);
+    //setTimeout used to render the height at the end of the event queue
+    setTimeout(() => {
+      console.log(currHeight.current.getBoundingClientRect().height);
+      setPageHeight(currHeight.current.getBoundingClientRect().height);
+    }, 0);
   });
 
   return (

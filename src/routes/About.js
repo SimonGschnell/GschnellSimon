@@ -4,6 +4,7 @@ import cv from "../cv.json";
 let About = () => {
   return (
     <>
+      <h1 className='font-italic'>Curriculum vitae</h1>
       <CvTable data={cv}></CvTable>
     </>
   );

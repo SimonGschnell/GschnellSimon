@@ -1,40 +1,52 @@
 [
     {
         "direction":"flex-row-reverse",
-        "category":"job",
-        "headers":["Company","Occupation","Skills","Time"],
+        "category":"Academic time",
+        "headers":["School","Avg grade","Topics","Time"],
         "data":[
             {
-                "comp":"yannovis GMBH",
-                "title" : "Junior Frontend Developer",
-                "name" : "React, Vue, JS",
-                "time" : "1 year"
+                "comp":"Highschool for Informatics",
+                "title" : "7.8 / 10",
+                "name" : "C#, Html, Css, Js, SQL",
+                "time" : "5 years (2012-2017)"
+            },
+            {
+                "comp":"(self taught) online courses & classes",
+                "title" : "",
+                "name" : "React, Js, Java, GraphQL, Node.js, Flask & more",
+                "time" : ""
+            }
+            ,{
+                "comp":"Free University of Bolzano",
+                "title" : "26 / 30",
+                "name" : "Java, Python, C, Databases, Data Structures, Software engineering & more",
+                "time" : "3 years Bachelor (2019-2022)"
             }
         ]
     },
     {
-        "category":"job",
-        "headers":["Company","Occupation","Skills","Time"],
+        "category":"Work experiece",
+        "headers":["Company","Occupation","Skills aquired","Time"],
         "data":[
             {
-                "comp":"yannovis GMBH",
-                "title" : "Junior Frontend Developer",
-                "name" : "React, Vue, JS",
-                "time" : "1 year"
-            }
-        ]
-    },
-    {
-        "direction":"flex-row-reverse",
-        "category":"job",
-        "headers":["Company","Occupation","Skills","Time"],
-        "data":[
+                "comp":"Gruber Logistics",
+                "title" : "IT section",
+                "name" : "SQL",
+                "time" : "1 year (2017-2018)"
+            },
             {
-                "comp":"yannovis GMBH",
-                "title" : "Junior Frontend Developer",
-                "name" : "React, Vue, JS",
-                "time" : "1 year"
-            }
+                "comp":"Niederstaetter",
+                "title" : "Developing assistance (part time)",
+                "name" : "Microsoft Power Apps",
+                "time" : "5 months (2020)"
+            },
+            {
+                "comp":"Yanovis Srl",
+                "title" : "Frontend Developer",
+                "name" : "React, Vue, advanced JS",
+                "time" : "1 year (2018-2019)"
+            } 
+            
         ]
     }
 ]
