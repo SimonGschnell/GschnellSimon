@@ -1,21 +1,26 @@
 body {
   margin: 0;
-  background: rgb(74,80,86) !important;
-  color:white !important;
-  font-family:  'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif ;
+  background: rgb(74, 80, 86) !important;
+  color: white !important;
+  font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, #root, body{
+html,
+#root,
+body {
   height: 100%;
 }
 
-
-
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.hoverAboutTable:hover {
+  text-decoration: underline;
+  color: #ffe189 !important;
+  cursor: pointer;
 }
