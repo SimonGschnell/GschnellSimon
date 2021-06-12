@@ -11,11 +11,13 @@ function App() {
   let currHeight = useRef();
   let [pageHeight, setPageHeight] = useState(0);
 
-  useLayoutEffect(() => {
-    //setTimeout used to render the height at the end of the event queue
-
+  const refreshSize = () => {
     console.log(currHeight.current.getBoundingClientRect().height);
     setPageHeight(currHeight.current.getBoundingClientRect().height);
+  };
+
+  useLayoutEffect(() => {
+    refreshSize();
   });
 
   return (
