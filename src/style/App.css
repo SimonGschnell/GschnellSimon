@@ -5,31 +5,20 @@
   right: 0;
 }
 
-.fade-appear,
-.fade-enter {
-  width: 70%;
+.alert-enter {
   opacity: 0;
-  z-index: 1;
-  overflow: hidden;
+  transform: translateX(-100vw);
 }
-
-.fade-appear-active,
-.fade-enter.fade-enter-active {
-  width: 100%;
+.alert-enter-active {
   opacity: 1;
-  overflow: hidden;
-  transition: all 300ms linear;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
 }
-
-.fade-exit {
-  width: 100%;
+.alert-exit {
   opacity: 1;
-  overflow: hidden;
 }
-
-.fade-exit.fade-exit-active {
-  width: 75%;
+.alert-exit-active {
   opacity: 0;
-  overflow: hidden;
-  transition: all 150ms linear;
+  transform: translateX(-100vw);
+  transition: opacity 300ms, transform 300ms;
 }

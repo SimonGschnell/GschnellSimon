@@ -4,35 +4,25 @@ import highlight from "../../../utils/highlightedSearch";
 
 let Drop = (props) => {
   let color = "yellow";
-  let [apiSearch, setApiSearch] = useState("");
-
-  let handleApiSearch = (event) => {
-    setApiSearch(event.target.value);
-  };
 
   return (
-    <Dropdown>
+    <Dropdown size='lg' className={props.display ?? ""}>
       <Dropdown.Toggle id='dropdown-custom-components'>
         {props.title}
       </Dropdown.Toggle>
 
-      <Dropdown.Menu
-        search={apiSearch}
-        handle={handleApiSearch}
-        as={props.header ?? null}
-      >
-        <Dropdown.Item eventKey='1' value='Red'>
-          {highlight("Red", apiSearch, color)}
-        </Dropdown.Item>
-        <Dropdown.Item eventKey='2' value='Blue'>
-          {highlight("Blue", apiSearch, color)}
-        </Dropdown.Item>
-        <Dropdown.Item eventKey='3' value='Orange'>
-          {highlight("Orange", apiSearch, color)}
-        </Dropdown.Item>
-        <Dropdown.Item value='Red-Orange' eventKey='1'>
-          {highlight("Red-Orange", apiSearch, color)}
-        </Dropdown.Item>
+      <Dropdown.Menu {...props.menu}>
+        {props.routes.map((route) => {
+          return (
+            <Dropdown.Item
+              onClick={() => props.itemHandler(route)}
+              value={route}
+              key={route}
+            >
+              {props.menu ? highlight(route, props.menu.search, color) : route}
+            </Dropdown.Item>
+          );
+        })}
       </Dropdown.Menu>
     </Dropdown>
   );

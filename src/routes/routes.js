@@ -46,10 +46,7 @@ let routes = [
   {
     route: "/api",
     Component: APIS,
-    options: {
-      exact: true,
-      strict: true,
-    },
+    options: {},
   },
   {
     route: "*",

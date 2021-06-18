@@ -2,13 +2,22 @@ import Navigation from "./components/Nav.js";
 import Footer from "./components/footer/footer";
 import routes from "./routes/routes";
 import Container from "react-bootstrap/Container";
+import Toast from "./components/UI/toasts/Toast";
 import "./style/App.css";
-import { useState, useLayoutEffect, Suspense, useRef } from "react";
-import { Switch, Route } from "react-router-dom";
+import { useState, useLayoutEffect, Suspense, useRef, useMemo } from "react";
+import { Switch, Route, useLocation } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import ToastContext from "./contexts/ToastContext";
 
 function App() {
+  let location = useLocation();
   let currHeight = useRef();
+
+  let [toastContent, setToastContent] = useState(["", ""]);
+  const toastProviderValue = useMemo(
+    () => ({ toastContent, setToastContent }),
+    [toastContent, setToastContent]
+  );
   let [pageHeight, setPageHeight] = useState(0);
 
   const refreshSize = () => {
@@ -26,43 +35,49 @@ function App() {
         <Navigation></Navigation>
         <div className='my-5' style={{ minHeight: pageHeight }}>
           <Container className='position-relative' fluid='md'>
-            <Route
-              render={({ location }) => (
-                <TransitionGroup>
-                  <CSSTransition
-                    key={location.key}
-                    timeout={300}
-                    classNames='fade'
-                  >
-                    <Suspense fallback={<div>Loading...</div>}>
-                      <Switch location={location}>
-                        {routes.map(({ route, Component, options }) => {
-                          return (
-                            <Route
-                              key={route}
-                              path={route}
-                              {...options}
-                              component={({ history }) => {
-                                return (
-                                  <div
-                                    ref={currHeight}
-                                    id='page'
-                                    className='page '
-                                  >
-                                    <Component history={history} />
-                                  </div>
-                                );
-                              }}
-                            />
-                          );
-                        })}
-                      </Switch>
-                    </Suspense>
-                  </CSSTransition>
-                </TransitionGroup>
-              )}
-            />
+            <TransitionGroup>
+              <CSSTransition
+                key={location.key}
+                timeout={300}
+                classNames='alert'
+              >
+                <ToastContext.Provider value={toastProviderValue}>
+                  <Switch location={location}>
+                    {routes.map(({ route, Component, options }) => {
+                      return (
+                        <Route
+                          key={route}
+                          path={route}
+                          {...options}
+                          component={({ history }) => {
+                            return (
+                              <div ref={currHeight} id='page' className='page '>
+                                <Component history={history} test='test' />
+                              </div>
+                            );
+                          }}
+                        />
+                      );
+                    })}
+                  </Switch>
+                </ToastContext.Provider>
+              </CSSTransition>
+            </TransitionGroup>
           </Container>
+          {
+            // Toast just for debugging purpose
+          }
+          <Toast
+            title={toastContent[0]}
+            text={toastContent[1]}
+            styleC={{
+              position: "absolute",
+              bottom: "5rem",
+              left: "2rem",
+              minWidth: "200px",
+              color: "black",
+            }}
+          />
         </div>
 
         <Footer></Footer>

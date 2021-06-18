@@ -1,5 +1,5 @@
 import CvTable from "../components/cvTable/cvTable";
-import cv from "../cv.json";
+import cv from "../json/cv.json";
 import SimonG from "../images/SimonG.png";
 import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";

@@ -1,15 +1,15 @@
+import { useState, useEffect } from "react";
 
-import {useState, useEffect} from 'react'
+let useLocaleStorageState = (key, initValue, isObj) => {
+  let [search, setSearch] = useState(
+    isObj
+      ? JSON.parse(localStorage.getItem(key)) || initValue
+      : localStorage.getItem(key) || initValue
+  );
+  useEffect(() => {
+    localStorage.setItem(key, isObj ? JSON.stringify(search) : search);
+  }, [search, key, isObj]);
+  return [search, setSearch];
+};
 
-
- let useLocaleStorageState = (key,initValue) => {
-    let [search, setSearch] = useState(localStorage.getItem(key)||initValue);
-    useEffect(()=>{
-        localStorage.setItem(key, search);
-    },[search,key])
-    return [search, setSearch]
-}
-
-
-
-export {useLocaleStorageState} ;
+export { useLocaleStorageState };

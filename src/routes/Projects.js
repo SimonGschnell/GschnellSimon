@@ -1,8 +1,9 @@
-import projects from "../proj.json";
+import projects from "../json/proj.json";
 import { Link, useRouteMatch, useLocation } from "react-router-dom";
 import Input from "../components/UI/input";
 import { useLocaleStorageState } from "../hooks/customHooks";
 import highlight from "../utils/highlightedSearch";
+import { useEffect } from "react";
 
 let searchSVG = (
   <svg
@@ -26,7 +27,7 @@ let Projects = () => {
 
   let { url } = useRouteMatch();
 
-  let [search, setSearch] = useLocaleStorageState("search", "");
+  let [search, setSearch] = useLocaleStorageState("search", "", false);
 
   let handleSearch = (event) => {
     setSearch(event.target.value);
