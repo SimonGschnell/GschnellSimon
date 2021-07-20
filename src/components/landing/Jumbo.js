@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
+import { Link } from "react-router-dom";
 
 let headline = (props) => (
   <Jumbotron
@@ -36,9 +37,17 @@ let headline = (props) => (
             </p>
           </div>
           <p>
-            <Button className='text-dark ' variant='light'>
+            <Link
+              to='/contact'
+              style={{
+                fontSize: "1.5em",
+                backgroundColor: "rgba(0,0,0,0.2)",
+              }}
+              className='text-warning p-2  rounded'
+              role='button'
+            >
               Contact me
-            </Button>
+            </Link>
           </p>
         </Col>
       </Row>

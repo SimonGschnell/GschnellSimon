@@ -8,6 +8,7 @@ import DynamicComponent from "../utils/dynamicCompRender";
 
 const NumbersApi = lazy(() => import("./APIS/NumbersApi"));
 const OpenDataHub = lazy(() => import("./APIS/OpenDataHub"));
+const DynamicSearch = lazy(() => import("./APIS/DynamicSearch"));
 
 const setObjEntriesFalse = (obj) => {
   let newObj = {};
@@ -24,6 +25,7 @@ let APIS = memo((props) => {
     () => ({
       NumbersApi,
       OpenDataHub,
+      DynamicSearch,
     }),
     []
   );

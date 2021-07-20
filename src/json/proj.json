@@ -1,1 +1,16 @@
-[{"id":1,"name":"projp1", "size":2},{"id":2, "name":"proj2", "size":10}]
+[
+    {
+        "id":1,
+        "name":"Selenium Instagram bot ~ Python",
+        "description":"A program writen in python to grow a follow base. The bot automatically likes and comments peoples images with the instagram account given to him. Unfortunately Instagram doesn't allow boting and has very good protection against it.",
+        "image_src": "/img/instagram.png",
+        "date": "0101"
+    },
+    {
+        "id":2,
+        "name":"Java algorithm calculator ~ Java & JavaFx",
+        "description":"University project, the task was to create a javaFX application that allowed the user to select between different algorithms with different inputs and execute them. The program saves all the executed actions into a separate file and the outputs of the algorithms can be plotted on a graph.",
+        "image_src": "/img/javafx.png",
+        "date": "0202"
+    }
+]

@@ -1,4 +1,5 @@
 import { ReactComponent as Logo } from "../../images/logo.svg";
+import Github from "../../images/GitHub-Mark-Light-32px.png";
 
 const heartLogo = (
   <svg
@@ -18,7 +19,16 @@ const heartLogo = (
 
 let footer = () => (
   <>
-    <footer className='bg-dark mt-auto  px-5 py-3 text-white-50'>
+    <footer
+      style={{
+        bottom: 0,
+        left: 0,
+        right: 0,
+        zIndex: 3,
+        backgroundColor: "rgba(52, 58, 64, 0)",
+      }}
+      className='position-fixed   mt-auto  px-5 py-3 text-white-50'
+    >
       <p>
         {" "}
         This site has{" "}
@@ -27,9 +37,13 @@ let footer = () => (
         </a>
         , by{" "}
         <a href='/' className='text-white'>
-          Simon Gschnell
+          Simon Gschnell 🚀
         </a>
-        .
+        <a href='/' className='text-white'>
+          {"  "}GitHub
+          {"  "}
+          <img height='17px' alt='github logo' src={Github}></img>
+        </a>
         <span className='float-right'>
           created with{" "}
           <span className='text-white'>

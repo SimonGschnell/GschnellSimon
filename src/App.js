@@ -4,7 +4,14 @@ import routes from "./routes/routes";
 import Container from "react-bootstrap/Container";
 import Toast from "./components/UI/toasts/Toast";
 import "./style/App.css";
-import { useState, useLayoutEffect, Suspense, useRef, useMemo } from "react";
+import {
+  useState,
+  useLayoutEffect,
+  useEffect,
+  Suspense,
+  useRef,
+  useMemo,
+} from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import ToastContext from "./contexts/ToastContext";
@@ -13,6 +20,8 @@ function App() {
   let location = useLocation();
   let currHeight = useRef();
 
+  let [height, setHeight] = useState(document.body.scrollHeight);
+
   let [toastContent, setToastContent] = useState(["", ""]);
   const toastProviderValue = useMemo(
     () => ({ toastContent, setToastContent }),
@@ -20,20 +29,28 @@ function App() {
   );
   let [pageHeight, setPageHeight] = useState(0);
 
-  const refreshSize = () => {
-    console.log(currHeight.current.getBoundingClientRect().height);
-    setPageHeight(currHeight.current.getBoundingClientRect().height);
-  };
-
-  useLayoutEffect(() => {
-    refreshSize();
-  });
+  useEffect(() => {
+    setHeight(0);
+    console.log(document.body.scrollHeight);
+    setTimeout(() => {
+      setHeight(document.body.scrollHeight);
+    }, 700);
+  }, [location.pathname]);
 
   return (
     <>
-      <div className='d-flex w-100 h-100  mx-auto flex-column'>
+      <div
+        style={{
+          background: "url('/img/bbgg.gif')",
+          minHeight: height,
+          backgroundAttachment: "fixed",
+        }}
+        className='d-flex w-100 h-100  mx-auto flex-column'
+      >
+        <Footer></Footer>
         <Navigation></Navigation>
-        <div className='my-5' style={{ minHeight: pageHeight }}>
+
+        <div className='my-5'>
           <Container className='position-relative' fluid='md'>
             <TransitionGroup>
               <CSSTransition
@@ -64,6 +81,7 @@ function App() {
               </CSSTransition>
             </TransitionGroup>
           </Container>
+
           {
             // Toast just for debugging purpose
           }
@@ -71,7 +89,7 @@ function App() {
             title={toastContent[0]}
             text={toastContent[1]}
             styleC={{
-              position: "absolute",
+              position: "fixed",
               bottom: "5rem",
               left: "2rem",
               minWidth: "200px",
@@ -80,7 +98,9 @@ function App() {
           />
         </div>
 
-        <Footer></Footer>
+        {
+          //<Footer></Footer>
+        }
       </div>
     </>
   );

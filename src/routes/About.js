@@ -171,6 +171,8 @@ let About = ({ location }) => {
       </Container>
 
       <CvTable data={cv}></CvTable>
+      <br />
+      <br />
     </>
   );
 };

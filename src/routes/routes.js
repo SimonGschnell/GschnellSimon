@@ -8,6 +8,7 @@ import About from "./About";
 import Projects from "./Projects";
 import Project from "./Project";
 import APIS from "./APIS";
+import Contact from "./Contact";
 /*const About = lazy(() => import("./About"));
 const Projects = lazy(() => import("./Projects"));
 const Project = lazy(() => import("./Project"));
@@ -42,6 +43,14 @@ let routes = [
     route: "/projects/:id",
     Component: Project,
     options: {},
+  },
+  {
+    route: "/contact",
+    Component: Contact,
+    options: {
+      exact: true,
+      strict: true,
+    },
   },
   {
     route: "/api",
